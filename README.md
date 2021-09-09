@@ -65,4 +65,12 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fskavrx-mountain.png" title="skavrx-mountain.png"></a>
   <a href="images/thomasshifflett31-beautiful-city-sunset.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fthomasshifflett31-beautiful-city-sunset.jpg" title="thomasshifflett31-beautiful-city-sunset.jpg"></a>
+  <a href="images/dropside-ultrawide-gradient-landscape.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fdropside-ultrawide-gradient-landscape.png" title="dropside-ultrawide-gradient-landscape.png"></a>
+  <a href="images/Electronic_Sample_96-calm-night.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FElectronic_Sample_96-calm-night.png" title="Electronic_Sample_96-calm-night.png"></a>
+  <a href="images/muriLLu-Anime-Scenery-Sunset.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FmuriLLu-Anime-Scenery-Sunset.jpg" title="muriLLu-Anime-Scenery-Sunset.jpg"></a>
+  <a href="images/muriLLu-Japan-Neo-Wallpaper.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FmuriLLu-Japan-Neo-Wallpaper.png" title="muriLLu-Japan-Neo-Wallpaper.png"></a>
 </p>
