@@ -75,8 +75,8 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FmuriLLu-Japan-Neo-Wallpaper.png" title="muriLLu-Japan-Neo-Wallpaper.png"></a>
   <a href="images/by-kvacm-gorod-zakat-liudi-siluty-budushchee.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fby-kvacm-gorod-zakat-liudi-siluty-budushchee.jpg" title="by-kvacm-gorod-zakat-liudi-siluty-budushchee.jpg"></a>
-  <a href="images/wp5102649-neon-retro-city-ps4-wallpapers.jpg">
-    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp5102649-neon-retro-city-ps4-wallpapers.jpg" title="wp5102649-neon-retro-city-ps4-wallpapers.jpg"></a>
+  <a href="images/wp5102649-neon-retro-city-ps4-wallpapers.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp5102649-neon-retro-city-ps4-wallpapers.png" title="wp5102649-neon-retro-city-ps4-wallpapers.png"></a>
   <a href="images/wp5940546-retro-sun-wallpapers.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp5940546-retro-sun-wallpapers.jpg" title="wp5940546-retro-sun-wallpapers.jpg"></a>
   <a href="images/wp5998347-retro-4k-wallpapers.jpg">
