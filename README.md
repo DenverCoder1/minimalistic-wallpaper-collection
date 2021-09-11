@@ -73,4 +73,20 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FmuriLLu-Anime-Scenery-Sunset.jpg" title="muriLLu-Anime-Scenery-Sunset.jpg"></a>
   <a href="images/muriLLu-Japan-Neo-Wallpaper.png">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FmuriLLu-Japan-Neo-Wallpaper.png" title="muriLLu-Japan-Neo-Wallpaper.png"></a>
+  <a href="images/by-kvacm-gorod-zakat-liudi-siluty-budushchee.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fby-kvacm-gorod-zakat-liudi-siluty-budushchee.jpg" title="by-kvacm-gorod-zakat-liudi-siluty-budushchee.jpg"></a>
+  <a href="images/wp5102649-neon-retro-city-ps4-wallpapers.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp5102649-neon-retro-city-ps4-wallpapers.jpg" title="wp5102649-neon-retro-city-ps4-wallpapers.jpg"></a>
+  <a href="images/wp5940546-retro-sun-wallpapers.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp5940546-retro-sun-wallpapers.jpg" title="wp5940546-retro-sun-wallpapers.jpg"></a>
+  <a href="images/wp5998347-retro-4k-wallpapers.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp5998347-retro-4k-wallpapers.jpg" title="wp5998347-retro-4k-wallpapers.jpg"></a>
+  <a href="images/wp6504516-monument-valley-sunset-ultra-hd-wallpapers.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp6504516-monument-valley-sunset-ultra-hd-wallpapers.jpg" title="wp6504516-monument-valley-sunset-ultra-hd-wallpapers.jpg"></a>
+  <a href="images/wp6678290-retro-city-sunset-wallpapers.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp6678290-retro-city-sunset-wallpapers.jpg" title="wp6678290-retro-city-sunset-wallpapers.jpg"></a>
+  <a href="images/wp7944007-minimalist-pink-aesthetic-pc-wallpapers.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp7944007-minimalist-pink-aesthetic-pc-wallpapers.jpg" title="wp7944007-minimalist-pink-aesthetic-pc-wallpapers.jpg"></a>
+  <a href="images/wp8860672-minimalist-wolf-wallpapers.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp8860672-minimalist-wolf-wallpapers.jpg" title="wp8860672-minimalist-wolf-wallpapers.jpg"></a>
 </p>
