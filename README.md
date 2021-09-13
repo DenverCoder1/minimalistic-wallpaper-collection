@@ -9,8 +9,6 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
 <p align="center">
   <a href="images/Ishos-futuristic-city-sunset.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FIshos-futuristic-city-sunset.jpg" title="Ishos-futuristic-city-sunset.jpg"></a>
-  <a href="images/MatrixRetoastet-flat-design-mountains.png">
-    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FMatrixRetoastet-flat-design-mountains.png" title="MatrixRetoastet-flat-design-mountains.png"></a>
   <a href="images/Scaredpie-moon-sunset-landscape.png">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FScaredpie-moon-sunset-landscape.png" title="Scaredpie-moon-sunset-landscape.png"></a>
   <a href="images/Scaredpie-mountain-retreat.jpg">
