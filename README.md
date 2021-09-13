@@ -89,4 +89,14 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp7944007-minimalist-pink-aesthetic-pc-wallpapers.jpg" title="wp7944007-minimalist-pink-aesthetic-pc-wallpapers.jpg"></a>
   <a href="images/wp8860672-minimalist-wolf-wallpapers.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp8860672-minimalist-wolf-wallpapers.jpg" title="wp8860672-minimalist-wolf-wallpapers.jpg"></a>
+  <a href="images/alena-aenami-away.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Falena-aenami-away.jpg" title="alena-aenami-away.jpg"></a>
+  <a href="images/alena-aenami-dawn.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Falena-aenami-dawn.jpg" title="alena-aenami-dawn.jpg"></a>
+  <a href="images/alena-aenami-lights.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwpalena-aenami-lights.jpg" title="alena-aenami-lights.jpg"></a>
+  <a href="images/alena-aenami-lost-in-between.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp8860672-malena-aenami-lost-in-between.jpg" title="alena-aenami-lost-in-between.jpg"></a>
+  <a href="images/alena-aenami-sunrise.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwp8alena-aenami-sunrise.jpg" title="alena-aenami-sunrise.jpg"></a>
 </p>
