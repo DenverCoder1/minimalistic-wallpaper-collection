@@ -101,4 +101,26 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_lone-samurai.jpg" title="wallpapersden.com_lone-samurai.jpg"></a>
   <a href="images/romain-trystram-Neon-Alleyway.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fromain-trystram-Neon-Alleyway.jpg" title="romain-trystram-Neon-Alleyway.jpg"></a>
+  <a href="images/alena-aenami-far-from-tomorrow.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Falena-aenami-far-from-tomorrow.jpg" title="alena-aenami-far-from-tomorrow.jpg"></a>
+  <a href="images/Electronic_Sample_96-Into-the-Woods.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FElectronic_Sample_96-Into-the-Woods.png" title="Electronic_Sample_96-Into-the-Woods.png"></a>
+  <a href="images/unknown-minimalist-desert-landscape.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-minimalist-desert-landscape.jpg" title="unknown-minimalist-desert-landscape.jpg"></a>
+  <a href="images/wallpapersden.com_cool-red-mountains-4k.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_cool-red-mountains-4k.jpg" title="wallpapersden.com_cool-red-mountains-4k.jpg"></a>
+  <a href="images/wallpapersden.com_eagle-mountain-sunset-minimalist.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_eagle-mountain-sunset-minimalist.jpg" title="wallpapersden.com_eagle-mountain-sunset-minimalist.jpg"></a>
+  <a href="images/wallpapersden.com_landscape-moon-digital-evening.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_landscape-moon-digital-evening.jpg" title="wallpapersden.com_landscape-moon-digital-evening.jpg"></a>
+  <a href="images/wallpapersden.com_minimal-reflection-sunset.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_minimal-reflection-sunset.jpg" title="wallpapersden.com_minimal-reflection-sunset.jpg"></a>
+  <a href="images/wallpapersden.com_nature-sunset-simple-minimal-illustration.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_nature-sunset-simple-minimal-illustration.jpg" title="wallpapersden.com_nature-sunset-simple-minimal-illustration.jpg"></a>
+  <a href="images/wallpapersden.com_my-winter-4k.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_my-winter-4k.jpg" title="wallpapersden.com_my-winter-4k.jpg"></a>
+  <a href="images/wallpapersden.com_owl-forest-at-night-art.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_owl-forest-at-night-art.jpg" title="wallpapersden.com_owl-forest-at-night-art.jpg"></a>
+  <a href="images/wallpapersden.com_pyramid-minimal-landscape.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_pyramid-minimal-landscape.jpg" title="wallpapersden.com_pyramid-minimal-landscape.jpg"></a>
 </p>
