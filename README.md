@@ -143,4 +143,6 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-anime-sunset.jpg" title="unknown-anime-sunset.jpg"></a>
   <a href="images/unknown-oriental-fantasy.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-oriental-fantasy.jpg" title="unknown-oriental-fantasy.jpg"></a>
+  <a href="images/byrotek-mountain-view.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fbyrotek-mountain-view.png" title="byrotek-mountain-view.png"></a>
 </p>
