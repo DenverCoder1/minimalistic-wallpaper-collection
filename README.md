@@ -123,4 +123,24 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_owl-forest-at-night-art.jpg" title="wallpapersden.com_owl-forest-at-night-art.jpg"></a>
   <a href="images/wallpapersden.com_pyramid-minimal-landscape.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fwallpapersden.com_pyramid-minimal-landscape.jpg" title="wallpapersden.com_pyramid-minimal-landscape.jpg"></a>
+  <a href="images/kvacm-amythest-kingdom.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-amythest-kingdom.jpg" title="kvacm-amythest-kingdom.jpg"></a>
+  <a href="images/kvacm-early-evening.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-early-evening.jpg" title="kvacm-early-evening.jpg"></a>
+  <a href="images/kvacm-misty-mountains.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-misty-mountains.jpg" title="kvacm-misty-mountains.jpg"></a>
+  <a href="images/kvacm-night-patrol.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-night-patrol.jpg" title="kvacm-night-patrol.jpg"></a>
+  <a href="images/kvacm-pinky-purple.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-pinky-purple.jpg" title="kvacm-pinky-purple.jpg"></a>
+  <a href="images/kvacm-sunlight.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-sunlight.png" title="kvacm-sunlight.png"></a>
+  <a href="images/kvacm-synth-waterfall.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-synth-waterfall.png" title="kvacm-synth-waterfall.png"></a>
+  <a href="images/kvacm-torii-city.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkvacm-torii-city.jpg" title="kvacm-torii-city.jpg"></a>
+  <a href="images/unknown-anime-sunset.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-anime-sunset.jpg" title="unknown-anime-sunset.jpg"></a>
+  <a href="images/unknown-oriental-fantasy.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-oriental-fantasy.jpg" title="unknown-oriental-fantasy.jpg"></a>
 </p>
