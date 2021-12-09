@@ -161,4 +161,8 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Frmradev-tranquility.png" title="rmradev-tranquility.png"></a>
   <a href="images/rmradev-vampire-castle.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Frmradev-vampire-castle.jpg" title="rmradev-vampire-castle.jpg"></a>
+  <a href="images/unknown-forest-wallpaper.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-forest-wallpaper.jpg" title="unknown-forest-wallpaper.jpg"></a>
+  <a href="images/unknown-minimalist-japan.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-minimalist-japan.jpg" title="unknown-minimalist-japan.jpg"></a>
 </p>
