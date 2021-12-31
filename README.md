@@ -165,4 +165,14 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-forest-wallpaper.jpg" title="unknown-forest-wallpaper.jpg"></a>
   <a href="images/unknown-minimalist-japan.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Funknown-minimalist-japan.jpg" title="unknown-minimalist-japan.jpg"></a>
+  <a href="images/gavrl-snowy-forest.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fgavrl-snowy-forest.jpg" title="gavrl-snowy-forest.jpg"></a>
+  <a href="images/gavryl-broken-structures.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fgavryl-broken-structures.jpg" title="gavryl-broken-structures.jpg"></a>
+  <a href="images/gavryl-by-your-side.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fgavryl-by-your-side.jpg" title="gavryl-by-your-side.jpg"></a>
+  <a href="images/gavryl-cozy-night.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fgavryl-cozy-night.jpg" title="gavryl-cozy-night.jpg"></a>
+  <a href="images/Intelligent_Steak297-minimalistic-sunset.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FIntelligent_Steak297-minimalistic-sunset.jpg" title="Intelligent_Steak297-minimalistic-sunset.jpg"></a>
 </p>
