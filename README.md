@@ -2,7 +2,7 @@
 
 This is my collection of minimalistic, flat art, and colorful, digital nature wallpapers.
 
-**Disclaimer:** None of these wallpapers were designed by me. Most of these wallpapers were found on [Reddit](https://www.reddit.com/r/wallpaper/).
+**Disclaimer:** None of these wallpapers were designed by me. Most of these wallpapers were found on [Reddit](https://www.reddit.com/r/wallpaper/) or the artists' DeviantArt or portfolio site.
 
 ## Wallpapers
 
