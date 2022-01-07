@@ -175,4 +175,16 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fgavryl-cozy-night.jpg" title="gavryl-cozy-night.jpg"></a>
   <a href="images/Intelligent_Steak297-minimalistic-sunset.jpg">
     <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2FIntelligent_Steak297-minimalistic-sunset.jpg" title="Intelligent_Steak297-minimalistic-sunset.jpg"></a>
+  <a href="images/mark-kirkpatrick-mk-landscape-05.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fmark-kirkpatrick-mk-landscape-05.jpg" title="mark-kirkpatrick-mk-landscape-05.jpg"></a>
+  <a href="images/among-trees-campsite.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Famong-trees-campsite.jpg" title="among-trees-campsite.jpg"></a>
+  <a href="images/sandace11-dusk.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fsandace11-dusk.jpg" title="sandace11-dusk.jpg"></a>
+  <a href="images/mrwhoseboss-alone-but-awesome.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fmrwhoseboss-alone-but-awesome.jpg" title="mrwhoseboss-alone-but-awesome.jpg"></a>
+  <a href="images/kuldarleement-reindeer.jpg">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fkuldarleement-reindeer.jpg" title="kuldarleement-reindeer.jpg"></a>
+  <a href="images/ryky-sky-wave.png">
+    <img src="https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/https%3A%2F%2Fgithub.com%2FDenverCoder1%2FMinimalistic-Wallpaper-Collection%2Fraw%2Fmain%2Fimages%2Fryky-sky-wave.png" title="ryky-sky-wave.png"></a>
 </p>
