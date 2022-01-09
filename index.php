@@ -11,8 +11,8 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 // directory where the images are stored
 $img_dir = "images/";
 
-// prefix for generating 175x105 thumbnails
-$imgproxy_prefix = "https://dc1imgproxy.herokuapp.com/x/fill/175/105/sm/0/plain/" . urlencode($base_url . $img_dir);
+// prefix for generating 332x200px thumbnails
+$imgproxy_prefix = "https://dc1imgproxy.herokuapp.com/x/fill/332/200/sm/0/plain/" . urlencode($base_url . $img_dir);
 
 // get a list of all the files in the images directory
 $images = glob($img_dir . "*", GLOB_BRACE);
@@ -98,11 +98,11 @@ if (isset($_GET['random'])) {
 
         .gallery img {
             width: 100%;
+            height: 100%;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 140px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
             transition: 0.1s ease-in-out;
             position: relative;
@@ -110,27 +110,6 @@ if (isset($_GET['random'])) {
 
         .gallery img:hover {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-        }
-
-        .gallery img:before {
-            content: "";
-            position: absolute;
-            left: 0px;
-            height: 100%;
-            width: calc(100% - 8px);
-            background-color: rgb(29 29 29);
-            border-radius: 0px;
-        }
-
-        .gallery img:after {
-            content: "🖻";
-            display: block;
-            font-size: 40px;
-            color: rgb(90 90 90);
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 38px;
         }
     </style>
 </head>
