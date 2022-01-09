@@ -61,7 +61,7 @@ if (isset($_GET['random'])) {
         }
 
         a {
-            color: rgb(90 90 90);
+            color: #fff;
         }
 
         .title {
