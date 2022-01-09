@@ -44,6 +44,9 @@ if (isset($_GET['random'])) {
     // get the image url
     $image_url = $base_url . $img_dir . basename($images[array_rand($images)]);
 
+    echo $image_url;
+    exit;
+
     // set content type
     if (preg_match("/\.(jpg|jpeg)$/", $image_url)) {
         header('Content-Type: image/jpeg');
@@ -52,6 +55,7 @@ if (isset($_GET['random'])) {
     } else if (preg_match("/\.(gif)$/", $image_url)) {
         header('Content-Type: image/gif');
     }
+
 
     // return the contents of the image at the url
     exit(curl_get_contents($image_url));
