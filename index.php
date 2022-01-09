@@ -1,27 +1,5 @@
 <?php
 
-/**
- * Create a CURL request to the specified URL
- * 
- * @param string $url The URL to request
- * 
- * @return string The response from the URL
- */
-function curl_get_contents($url)
-{
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-    curl_setopt($ch, CURLOPT_VERBOSE, FALSE);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    return $response;
-}
-
 // get base url of the site
 $base_url = rtrim("https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}", '/') . "/";
 
@@ -42,23 +20,19 @@ $images = glob($img_dir . "*", GLOB_BRACE);
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
     // get the image url
-    $image_url = $base_url . $img_dir . basename($images[array_rand($images)]);
-
-    echo $image_url;
-    exit;
+    $random_image_path = $images[array_rand($images)];
 
     // set content type
-    if (preg_match("/\.(jpg|jpeg)$/", $image_url)) {
+    if (preg_match("/\.(jpg|jpeg)$/", $random_image_path)) {
         header('Content-Type: image/jpeg');
-    } else if (preg_match("/\.(png)$/", $image_url)) {
+    } else if (preg_match("/\.(png)$/", $random_image_path)) {
         header('Content-Type: image/png');
-    } else if (preg_match("/\.(gif)$/", $image_url)) {
+    } else if (preg_match("/\.(gif)$/", $random_image_path)) {
         header('Content-Type: image/gif');
     }
 
-
     // return the contents of the image at the url
-    exit(curl_get_contents($image_url));
+    exit(file_get_contents($random_image_path));
 }
 
 ?>
