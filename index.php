@@ -10,12 +10,16 @@
 function curl_get_contents($url)
 {
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_URL, $url);
-    $data = curl_exec($ch);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+    curl_setopt($ch, CURLOPT_VERBOSE, FALSE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
+    $response = curl_exec($ch);
     curl_close($ch);
-    return $data;
+    return $response;
 }
 
 // get base url of the site
@@ -38,7 +42,7 @@ $images = glob($img_dir . "*", GLOB_BRACE);
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
     // get the image url
-    $image_url = $base_url . $images[array_rand($images)];
+    $image_url = $base_url . $img_dir . basename($images[array_rand($images)]);
 
     // set content type
     if (preg_match("/\.(jpg|jpeg)$/", $image_url)) {
