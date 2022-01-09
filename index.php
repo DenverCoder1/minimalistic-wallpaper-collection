@@ -107,13 +107,35 @@ if (isset($_GET['random'])) {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 130px;
+            min-height: 140px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
             transition: 0.1s ease-in-out;
+            position: relative;
         }
 
         .gallery img:hover {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .gallery img:before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            height: 100%;
+            width: calc(100% - 8px);
+            background-color: rgb(29 29 29);
+            border-radius: 0px;
+        }
+
+        .gallery img:after {
+            content: "🖻";
+            display: block;
+            font-size: 40px;
+            color: rgb(90 90 90);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 38px;
         }
     </style>
 </head>
@@ -138,7 +160,15 @@ if (isset($_GET['random'])) {
     </div>
 
     <script type="text/javascript">
+        // iniitialize glightbox
         const lightbox = GLightbox();
+
+        // if imgproxy version fails to load, fallback to full-size image
+        document.querySelectorAll(".gallery img").forEach(function(img) {
+            img.addEventListener("error", function() {
+                this.src = this.parentElement.href;
+            });
+        });
     </script>
 </body>
 
