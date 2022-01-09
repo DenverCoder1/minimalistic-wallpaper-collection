@@ -60,8 +60,17 @@ if (isset($_GET['random'])) {
             text-align: center;
         }
 
+        a {
+            color: rgb(90 90 90);
+        }
+
         .title {
             margin-top: 2em;
+        }
+
+        .footer {
+            margin-top: 2em;
+            color: #aaa;
         }
 
         .icons {
@@ -76,11 +85,6 @@ if (isset($_GET['random'])) {
         .icons svg:hover {
             cursor: pointer;
             filter: drop-shadow(0px 0px 2px rgb(255 255 255 / 0.4))
-        }
-
-        .icons a {
-            color: #fff;
-            display: flex;
         }
 
         .gallery {
@@ -167,6 +171,11 @@ if (isset($_GET['random'])) {
                 <img src="<?= $imgproxy_prefix . basename($image); ?>" loading="lazy" alt="<?php echo basename($image); ?>" title="<?php echo basename($image); ?>">
             </a>
         <?php endforeach; ?>
+    </div>
+
+    <div class="footer">
+        <p>Disclaimer: The images are not designed by me, they are mostly collected from Reddit and other sources.</p>
+        <p>Website by <a href="https://github.com/DenverCoder1/">Jonah Lawrence</a>, &copy; <?= date('Y'); ?></p>
     </div>
 
     <script type="text/javascript">
