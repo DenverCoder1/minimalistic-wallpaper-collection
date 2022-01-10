@@ -29,3 +29,12 @@ https://minimalistic-wallpaper.herokuapp.com/?random=3
 ```
 
 This API can be used for setting daily wallpapers on a mobile device by combining it with an app such as IFTTT.
+
+## Contributing
+
+All images appearing in the images directory contain the author (sometimes this is the original artist, for others, this is a Reddit user who shared the image or a website the image was found on in cases where the original artist is unknown) and the title or description of the wallpaper.
+
+* If the artist is not properly attributed, feel free to open an issue or pull request for renaming the files to give the author the correct attribution
+* New wallpapers may be suggested by opening a pull request, but as this is a personal wallpaper collection, it is up to my discretion whether or not the wallpaper will be accepted
+* Issues and pull requests regarding improvements to the site or API are welcome
+
