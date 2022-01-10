@@ -140,7 +140,7 @@ if (isset($_GET['random'])) {
             </svg>
         </a>
         <!-- Gallery -->
-        <a href="javascript:document.querySelector('.gallery img').click()" title="Gallery">
+        <a href="#gallery" title="Gallery">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="2em" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 19h10V4H7v15zm-5-2h4V6H2v11zM18 6v11h4V6h-4z"></path>
             </svg>
@@ -156,7 +156,7 @@ if (isset($_GET['random'])) {
     <div class="gallery">
         <?php foreach ($images as $image) : ?>
             <?php $dimensions = getimagesize($image); ?>
-            <a href="<?= $image; ?>" class="glightbox" data-description="<?= basename($image); ?> • <?= $dimensions[0] . 'x' . $dimensions[1]; ?>">
+            <a href="<?= $image; ?>" class="glightbox" data-alt="<?= basename($image); ?>" data-description="<?= basename($image); ?> • <?= $dimensions[0] . 'x' . $dimensions[1]; ?>">
                 <img src="<?= $imgproxy_prefix . basename($image); ?>" loading="lazy" alt="<?= basename($image); ?>" title="<?= basename($image); ?>">
             </a>
         <?php endforeach; ?>
@@ -168,13 +168,52 @@ if (isset($_GET['random'])) {
     </div>
 
     <script type="text/javascript">
-        // iniitialize glightbox
-        const lightbox = GLightbox();
+        window.addEventListener("load", function() {
+            /**
+             * Open image based on hash
+             * 
+             * If the hash is "gallery", open the first image in the gallery,
+             * otherwise, open the image with the hash as the alt attribute.
+             */
+            function openImageFromHash() {
+                const hash = window.location.hash.substr(1);
+                const query = hash === "gallery" ? ".gallery img" : `.gallery img[alt="${hash}"]`;
+                const imageElement = document.querySelector(query);
+                if (imageElement) {
+                    imageElement.click();
+                }
+            }
 
-        // if imgproxy version fails to load, fallback to full-size image
-        document.querySelectorAll(".gallery img").forEach(function(img) {
-            img.addEventListener("error", function() {
-                this.src = this.parentElement.href;
+            // initialize glightbox
+            const lightbox = GLightbox();
+
+            // if imgproxy version fails to load, fallback to full-size image
+            document.querySelectorAll(".gallery img").forEach(function(img) {
+                img.addEventListener("error", function() {
+                    this.src = this.parentElement.href;
+                });
+            });
+
+            // add hash to url when image is opened
+            lightbox.on("slide_changed", function(slide) {
+                window.location.hash = slide.current.slideConfig.alt;
+            });
+
+            // remove hash from url when image is closed
+            lightbox.on("close", function() {
+                history.replaceState(null, null, window.location.pathname);
+            });
+
+            // if hash is set, open image
+            if (window.location.hash) {
+                openImageFromHash();
+            }
+
+            // if hash is changed and lightbox is closed, open image
+            window.addEventListener("hashchange", function() {
+                if (!lightbox.lightboxOpen) {
+                    openImageFromHash();
+                }
             });
         });
     </script>
