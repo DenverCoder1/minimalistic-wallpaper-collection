@@ -99,6 +99,7 @@ if (isset($_GET['random'])) {
         .gallery img {
             width: 100%;
             height: 100%;
+            min-height: 122px;
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -110,6 +111,14 @@ if (isset($_GET['random'])) {
 
         .gallery img:hover {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .glightbox-clean .gslide-description {
+            background: #1d1d1d
+        }
+
+        div.gslide-desc {
+            color: #fff;
         }
     </style>
 </head>
@@ -146,8 +155,9 @@ if (isset($_GET['random'])) {
 
     <div class="gallery">
         <?php foreach ($images as $image) : ?>
-            <a href="<?= $image; ?>" class="glightbox">
-                <img src="<?= $imgproxy_prefix . basename($image); ?>" loading="lazy" alt="<?php echo basename($image); ?>" title="<?php echo basename($image); ?>">
+            <?php $dimensions = getimagesize($image); ?>
+            <a href="<?= $image; ?>" class="glightbox" data-description="<?= basename($image); ?> • <?= $dimensions[0] . 'x' . $dimensions[1]; ?>">
+                <img src="<?= $imgproxy_prefix . basename($image); ?>" loading="lazy" alt="<?= basename($image); ?>" title="<?= basename($image); ?>">
             </a>
         <?php endforeach; ?>
     </div>
