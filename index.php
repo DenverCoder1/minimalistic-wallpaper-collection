@@ -31,6 +31,9 @@ if (isset($_GET['random'])) {
         header('Content-Type: image/gif');
     }
 
+    // set default filename
+    header('Content-Disposition: inline; filename="' . basename($random_image_path) . '"');
+
     // return the contents of the image at the url
     exit(file_get_contents($random_image_path));
 }
