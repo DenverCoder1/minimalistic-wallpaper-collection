@@ -215,7 +215,9 @@ if (isset($_GET['random'])) {
 
         // if imgproxy version fails to load, fallback to full-size image
         document.querySelectorAll(".gallery img").forEach(function(img) {
-            this.src = this.parentElement.href;
+            img.addEventListener("error", function() {
+                this.src = this.parentElement.href;
+            });
         });
     </script>
 </body>
