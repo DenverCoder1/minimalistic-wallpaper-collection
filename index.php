@@ -204,13 +204,13 @@ if (isset($_GET['random'])) {
             if (window.location.hash) {
                 openImageFromHash();
             }
-        });
 
-        // if hash is changed and lightbox is closed, open image
-        window.addEventListener("hashchange", function() {
-            if (!lightbox.lightboxOpen) {
-                openImageFromHash();
-            }
+            // if hash is changed and lightbox is closed, open image
+            window.addEventListener("hashchange", function() {
+                if (!lightbox.lightboxOpen) {
+                    openImageFromHash();
+                }
+            });
         });
 
         // if imgproxy version fails to load, fallback to full-size image
