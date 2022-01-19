@@ -190,13 +190,6 @@ if (isset($_GET['random'])) {
             // initialize glightbox
             const lightbox = GLightbox();
 
-            // if imgproxy version fails to load, fallback to full-size image
-            document.querySelectorAll(".gallery img").forEach(function(img) {
-                img.addEventListener("error", function() {
-                    this.src = this.parentElement.href;
-                });
-            });
-
             // add hash to url when image is opened
             lightbox.on("slide_changed", function(slide) {
                 window.location.hash = slide.current.slideConfig.alt;
@@ -211,13 +204,18 @@ if (isset($_GET['random'])) {
             if (window.location.hash) {
                 openImageFromHash();
             }
+        });
 
-            // if hash is changed and lightbox is closed, open image
-            window.addEventListener("hashchange", function() {
-                if (!lightbox.lightboxOpen) {
-                    openImageFromHash();
-                }
-            });
+        // if hash is changed and lightbox is closed, open image
+        window.addEventListener("hashchange", function() {
+            if (!lightbox.lightboxOpen) {
+                openImageFromHash();
+            }
+        });
+
+        // if imgproxy version fails to load, fallback to full-size image
+        document.querySelectorAll(".gallery img").forEach(function(img) {
+            this.src = this.parentElement.href;
         });
     </script>
 </body>
