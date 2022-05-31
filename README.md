@@ -10,7 +10,7 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
 
 ## Wallpapers
 
-To view a gallery of all 100+ wallpapers, [click here](https://minimalistic-wallpaper.herokuapp.com/)!
+To view a gallery of all 200+ wallpapers, [click here](https://minimalistic-wallpaper.herokuapp.com/)!
 
 [![image](https://user-images.githubusercontent.com/20955511/148669884-c9ea7743-565c-4dc6-bc7e-57592536116e.png)](https://minimalistic-wallpaper.herokuapp.com/)
 
