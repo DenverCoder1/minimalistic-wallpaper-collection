@@ -1,0 +1,45 @@
+name: "Check Wallpaper Dimensions"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.jpg"
+      - "**.jpeg"
+      - "**.png"
+      - "**.webp"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**.jpg"
+      - "**.jpeg"
+      - "**.png"
+      - "**.webp"
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: pip install Pillow
+
+      - name: Check Wallpaper Dimensions
+        run: |
+          # run check_wallpapers.py and set the exit code
+          python .github/scripts/check_wallpapers.py -d images
+          if [ $? -ne 0 ]; then
+            exit 1
+          fi
