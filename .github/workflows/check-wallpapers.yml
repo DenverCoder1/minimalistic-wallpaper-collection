@@ -26,7 +26,7 @@ jobs:
       - name: Check Wallpaper Dimensions
         run: |
           # run check_wallpapers.py and set the exit code
-          python ./github/scripts/check_wallpapers.py
+          python ./.github/scripts/check_wallpapers.py
           if [ $? -ne 0 ]; then
             exit 1
           fi
