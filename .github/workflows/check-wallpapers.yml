@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10.4"]
+        python-version: ["3.10"]
     steps:
       - uses: actions/checkout@v2
 
@@ -22,14 +22,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      
+
       - name: Install dependencies
         run: pip install Pillow
 
       - name: Check Wallpaper Dimensions
         run: |
           # run check_wallpapers.py and set the exit code
-          python ./.github/scripts/check_wallpapers.py
+          python .github/scripts/check_wallpapers.py -d images
           if [ $? -ne 0 ]; then
             exit 1
           fi
