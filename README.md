@@ -1,6 +1,6 @@
 # Minimalistic Wallpaper Collection
 
-[![images](https://custom-icon-badges.herokuapp.com/github/directory-file-count/DenverCoder1/Minimalistic-Wallpaper-Collection/images?label=images&logo=image&host=staging.shields.io)](https://github.com/DenverCoder1/Minimalistic-Wallpaper-Collection/tree/main/images)
+[![images](https://custom-icon-badges.herokuapp.com/github/directory-file-count/DenverCoder1/Minimalistic-Wallpaper-Collection/images?label=images&logo=image)](https://github.com/DenverCoder1/Minimalistic-Wallpaper-Collection/tree/main/images)
 [![license](https://custom-icon-badges.herokuapp.com/github/license/denvercoder1/custom-icon-badges?logo=file-badge&logoColor=white&label=code+license&color=success)](https://github.com/DenverCoder1/Minimalistic-Wallpaper-Collection/blob/main/LICENSE)
 [![discord](https://custom-icon-badges.herokuapp.com/discord/819650821314052106?color=7289DA&logo=comments&label=discord&logoColor=white)](https://discord.gg/fPrdqh3Zfu)
 
