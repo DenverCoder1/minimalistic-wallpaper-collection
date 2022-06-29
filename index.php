@@ -102,6 +102,8 @@ if (isset($_GET['random'])) {
         .gallery img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            object-position: center;
             min-height: 122px;
             border-radius: 8px;
             display: flex;
@@ -122,6 +124,24 @@ if (isset($_GET['random'])) {
 
         div.gslide-desc {
             color: #fff;
+        }
+
+        .gallery img.loading {
+            background:
+                linear-gradient(0.25turn, transparent, #3c3c3c, transparent),
+                linear-gradient(#2c2c2c, #2c2c2c),
+                radial-gradient(38px circle at 19px 19px, #2c2c2c 50%, transparent 51%),
+                linear-gradient(#2c2c2c, #2c2c2c);
+            background-repeat: no-repeat;
+            background-size: 315px 250px, 315px 180px, 100px 100px, 225px 30px;
+            background-position: -315px 0, 0 0, 0px 190px, 50px 195px;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            to {
+                background-position: 315px 0, 0 0, 0 190px, 50px 195px;
+            }
         }
     </style>
 </head>
@@ -160,7 +180,7 @@ if (isset($_GET['random'])) {
         <?php foreach ($images as $image) : ?>
             <?php $dimensions = getimagesize($image); ?>
             <a href="<?= $image; ?>" class="glightbox" data-alt="<?= basename($image); ?>" data-description="<?= basename($image); ?> • <?= $dimensions[0] . 'x' . $dimensions[1]; ?>">
-                <img src="<?= $imgproxy_prefix . basename($image); ?>" loading="lazy" alt="<?= basename($image); ?>" title="<?= basename($image); ?>">
+                <img src="<?= $imgproxy_prefix . basename($image); ?>" loading="lazy" alt="<?= basename($image); ?>" title="<?= basename($image); ?>" class="loading" onload="this.classList.remove('loading')">
             </a>
         <?php endforeach; ?>
     </div>
