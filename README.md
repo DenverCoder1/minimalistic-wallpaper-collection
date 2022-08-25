@@ -6,7 +6,7 @@
 
 This is my collection of minimalistic, flat art, and colorful, digital nature wallpapers.
 
-**Disclaimer:** None of these wallpapers were designed by me. Most of these wallpapers were found on [Reddit](https://www.reddit.com/r/wallpaper/) or the artists' DeviantArt or portfolio site.
+**Disclaimer:** I do not claim ownership of the wallpapers appearing in this repository. Most of these wallpapers were found on [Reddit](https://www.reddit.com/r/wallpaper/), DeviantArt, or Artstation. If you find images in this repository owned by you and are of limited use, please let me know and I will remove them.
 
 ## Wallpapers
 
@@ -40,5 +40,6 @@ All images appearing in the images directory contain the author (sometimes this 
 
 * If the artist is not properly attributed, feel free to open an issue or pull request for renaming the files to give the author the correct attribution
 * New wallpapers may be suggested by opening a pull request, but as this is a personal wallpaper collection, it is up to my discretion whether or not the wallpaper will be accepted
-* Issues and pull requests regarding improvements to the site or API are welcome
+* If you are able to find or create higher resoluion versions of the existing wallpapers, feel free to do so and open a PR. Images should be at least 1920x1080, the preferrable size is 3840x2160, larger than this is not necessary. Note that a resized image is not considered higher resolution, however, an image upscaled using an AI image restoration model can be used if the output is not pixelated or blurry.
+* Issues and pull requests regarding improvements to the website or API are welcome
 
