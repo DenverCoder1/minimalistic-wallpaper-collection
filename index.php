@@ -94,7 +94,7 @@ if (isset($_GET['random'])) {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             grid-gap: 1em;
-            width: 95vw;
+            width: 95%;
             max-width: 1200px;
             margin: auto;
         }
@@ -127,20 +127,17 @@ if (isset($_GET['random'])) {
         }
 
         .gallery img.loading {
-            background:
-                linear-gradient(0.25turn, transparent, #3c3c3c, transparent),
-                linear-gradient(#2c2c2c, #2c2c2c),
-                radial-gradient(38px circle at 19px 19px, #2c2c2c 50%, transparent 51%),
-                linear-gradient(#2c2c2c, #2c2c2c);
+            aspect-ratio: 16 / 9;
+            color: transparent;
+            background: linear-gradient(0.25turn, transparent, #3c3c3c, transparent), linear-gradient(#2c2c2c, #2c2c2c);
             background-repeat: no-repeat;
-            background-size: 315px 250px, 315px 180px, 100px 100px, 225px 30px;
-            background-position: -315px 0, 0 0, 0px 190px, 50px 195px;
+            background-position: -315px 0, 0 0;
             animation: loading 1.5s infinite;
         }
 
         @keyframes loading {
             to {
-                background-position: 315px 0, 0 0, 0 190px, 50px 195px;
+                background-position: 315px 0, 0 0;
             }
         }
     </style>
