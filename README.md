@@ -1,8 +1,8 @@
 # Minimalistic Wallpaper Collection
 
-[![images](https://custom-icon-badges.herokuapp.com/github/directory-file-count/DenverCoder1/Minimalistic-Wallpaper-Collection/images?label=images&logo=image)](https://github.com/DenverCoder1/Minimalistic-Wallpaper-Collection/tree/main/images)
-[![license](https://custom-icon-badges.herokuapp.com/github/license/denvercoder1/custom-icon-badges?logo=file-badge&logoColor=white&label=code+license&color=success)](https://github.com/DenverCoder1/Minimalistic-Wallpaper-Collection/blob/main/LICENSE)
-[![discord](https://custom-icon-badges.herokuapp.com/discord/819650821314052106?color=7289DA&logo=comments&label=discord&logoColor=white)](https://discord.gg/fPrdqh3Zfu)
+[![images](https://custom-icon-badges.demolab.com/github/directory-file-count/DenverCoder1/Minimalistic-Wallpaper-Collection/images?label=images&logo=image)](https://github.com/DenverCoder1/Minimalistic-Wallpaper-Collection/tree/main/images)
+[![license](https://custom-icon-badges.demolab.com/github/license/denvercoder1/custom-icon-badges?logo=file-badge&logoColor=white&label=code+license&color=success)](https://github.com/DenverCoder1/Minimalistic-Wallpaper-Collection/blob/main/LICENSE)
+[![discord](https://custom-icon-badges.demolab.com/discord/819650821314052106?color=7289DA&logo=comments&label=discord&logoColor=white)](https://discord.gg/fPrdqh3Zfu)
 
 This is my collection of minimalistic, flat art, and colorful, digital nature wallpapers.
 
@@ -10,9 +10,9 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
 
 ## Wallpapers
 
-To view a gallery of all 200+ wallpapers, [click here](https://minimalistic-wallpaper.herokuapp.com/)!
+To view a gallery of all 200+ wallpapers, [click here](https://minimalistic-wallpaper.demolab.com/)!
 
-[![screenshot](https://user-images.githubusercontent.com/20955511/186479660-475532e8-427d-4df1-a19d-7f94090805b1.png)](https://minimalistic-wallpaper.herokuapp.com/)
+[![screenshot](https://user-images.githubusercontent.com/20955511/186479660-475532e8-427d-4df1-a19d-7f94090805b1.png)](https://minimalistic-wallpaper.demolab.com/)
 
 ## API
 
@@ -21,15 +21,15 @@ The website also includes a random wallpaper API, so you can request random wall
 To use the API, simply make a request to:
 
 ```md
-https://minimalistic-wallpaper.herokuapp.com/?random
+https://minimalistic-wallpaper.demolab.com/?random
 ```
 
 To get multiple random images at once, it is recommended to change the URL slightly to avoid caching. For example,
 
 ```md
-https://minimalistic-wallpaper.herokuapp.com/?random=1
-https://minimalistic-wallpaper.herokuapp.com/?random=2
-https://minimalistic-wallpaper.herokuapp.com/?random=3
+https://minimalistic-wallpaper.demolab.com/?random=1
+https://minimalistic-wallpaper.demolab.com/?random=2
+https://minimalistic-wallpaper.demolab.com/?random=3
 ```
 
 This API can be used for setting daily wallpapers on a mobile device by combining it with an app such as IFTTT.
