@@ -12,7 +12,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 $img_dir = "images/";
 
 // prefix for generating 332x200px thumbnails
-$imgproxy_prefix = "https://dc1imgproxy.herokuapp.com/x/fill/332/200/sm/0/plain/" . urlencode($base_url . $img_dir);
+$imgproxy_prefix = "https://dc1imgproxy.fly.dev/x/rs:auto:332:200:1/plain/" . urlencode($base_url . $img_dir);
 
 // get a list of all the files in the images directory
 $images = glob($img_dir . "*", GLOB_BRACE);
