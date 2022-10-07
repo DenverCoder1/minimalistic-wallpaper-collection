@@ -1,43 +1,49 @@
 <?php
 
-// get base url of the site
-$base_url = rtrim("https://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}", '/') . "/";
-
-// use GitHub raw URL if the server is localhost since imgproxy won't find local files
-if ($_SERVER['SERVER_NAME'] == 'localhost') {
-    $base_url = "https://raw.githubusercontent.com/DenverCoder1/Minimalistic-Wallpaper-Collection/main/";
+function curlGetContents($url, $userAgent)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_AUTOREFERER, true);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_VERBOSE, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return $response;
 }
 
-// directory where the images are stored
-$img_dir = "images/";
+$REPO = "DenverCoder1/minimalistic-wallpaper-collection";
+
+$BRANCH_NAME = "main";
+
+$IMAGES_DIRECTORY = "images";
+
+$BASE_URL = "https://raw.githubusercontent.com/$REPO/$BRANCH_NAME/$IMAGES_DIRECTORY/";
 
 // prefix for generating 332x200px thumbnails
-$imgproxy_prefix = "https://dc1imgproxy.fly.dev/x/rs:auto:332:200:1/plain/" . urlencode($base_url . $img_dir);
+$IMGPROXY_PREFIX = "https://dc1imgproxy.fly.dev/x/rs:auto:332:200:1/plain/" . urlencode($BASE_URL);
 
-// get a list of all the files in the images directory
-$images = glob($img_dir . "*", GLOB_BRACE);
+// API url to get a listing of images in the directory on GitHub
+$GITHUB_API_URL = "https://api.github.com/repos/$REPO/contents/$IMAGES_DIRECTORY/";
+
+$images = json_decode(curlGetContents($GITHUB_API_URL, $REPO));
 
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
     // get the image url
-    $random_image_path = $images[array_rand($images)];
-
-    // set content type
-    if (preg_match("/\.(jpg|jpeg)$/", $random_image_path)) {
-        header('Content-Type: image/jpeg');
-    } else if (preg_match("/\.(png)$/", $random_image_path)) {
-        header('Content-Type: image/png');
-    } else if (preg_match("/\.(gif)$/", $random_image_path)) {
-        header('Content-Type: image/gif');
-    }
-
-    // set default filename
-    header('Content-Disposition: inline; filename="' . basename($random_image_path) . '"');
-
-    // return the contents of the image at the url
-    exit(file_get_contents($random_image_path));
+    $random_image_path = $images[array_rand($images)]->download_url;
+    header("Location: $random_image_path");
 }
 
+// if the current URL is in the form "/images/...", show the image
+if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
+    $image_path = $BASE_URL . $matches[1];
+    header("Location: $image_path");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -175,9 +181,9 @@ if (isset($_GET['random'])) {
 
     <div class="gallery">
         <?php foreach ($images as $image) : ?>
-            <?php $dimensions = getimagesize($image); ?>
-            <a href="<?= $image; ?>" class="glightbox" data-alt="<?= basename($image); ?>" data-description="<?= basename($image); ?> • <?= $dimensions[0] . 'x' . $dimensions[1]; ?>">
-                <img src="<?= $imgproxy_prefix . basename($image); ?>" loading="lazy" alt="<?= basename($image); ?>" title="<?= basename($image); ?>" class="loading" onload="this.classList.remove('loading')">
+            <?php $image_path = $image->download_url; ?>
+            <a href="<?= $image_path; ?>" class="glightbox" data-alt="<?= basename($image_path); ?>" data-description="<?= basename($image_path); ?>">
+                <img src="<?= $IMGPROXY_PREFIX . basename($image_path); ?>" loading="lazy" alt="<?= basename($image_path); ?>" title="<?= basename($image_path); ?>" class="loading" onload="this.classList.remove('loading')">
             </a>
         <?php endforeach; ?>
     </div>
@@ -191,7 +197,7 @@ if (isset($_GET['random'])) {
         window.addEventListener("load", function() {
             /**
              * Open image based on hash
-             * 
+             *
              * If the hash is "gallery", open the first image in the gallery,
              * otherwise, open the image with the hash as the alt attribute.
              */
@@ -206,6 +212,21 @@ if (isset($_GET['random'])) {
 
             // initialize glightbox
             const lightbox = GLightbox();
+
+            // add image dimensions to description on image load
+            lightbox.on("slide_after_load", function(slide) {
+                // get the dimensions of the slide image
+                const image = slide.slide.querySelector("img");
+                const width = image.naturalWidth;
+                const height = image.naturalHeight;
+                // get the description and add the dimensions if not already present
+                const description = slide.slideConfig.description;
+                const parts = description.split(" • ");
+                parts[1] = ` ${width}x${height}`;
+                slide.slideConfig.description = parts.join(" • ");
+                // update the description
+                slide.slide.querySelector(".gslide-desc").innerText = slide.slideConfig.description;
+            });
 
             // add hash to url when image is opened
             lightbox.on("slide_changed", function(slide) {
