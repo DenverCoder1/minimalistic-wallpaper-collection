@@ -5,5 +5,8 @@
             "excludeFiles": "images/**"
         }
     },
-    "routes": [{ "src": "/(.*)", "dest": "/api/index.php" }]
+    "routes": [{ "src": "/(.*)", "dest": "/api/index.php" }],
+    "github": {
+        "silent": true
+    }
 }
