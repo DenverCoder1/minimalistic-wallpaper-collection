@@ -1,1 +1,7 @@
+.vscode
+.vercel
+.env
+.venv
+
+.github
 images
