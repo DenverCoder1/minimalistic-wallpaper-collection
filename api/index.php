@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Fetch the contents of a URL with cURL
+ *
+ * @param string $url The URL to fetch
+ * @param string $userAgent The user agent to use
+ * @return string The contents of the URL
+ */
 function curlGetContents($url, $userAgent)
 {
     $ch = curl_init();
@@ -16,6 +23,39 @@ function curlGetContents($url, $userAgent)
     return $response;
 }
 
+/**
+ * Fetch an image, if it is larger than 4.5MB, redirect to it
+ * otherwise, return the image as content
+ *
+ * @param string $url The URL to fetch
+ * @param string $userAgent The user agent to use
+ * @param bool $redirect Whether to force a redirect
+ */
+function displayImage($url, $userAgent, $redirect)
+{
+    // don't need to fetch the image if we're redirecting
+    $contents = $redirect ? "" : curlGetContents($url, $userAgent);
+
+    // redirect if redirect is set or the image is larger than 4.5MB
+    if ($redirect || strlen($contents) > 4500000) {
+        header("Location: $url");
+        exit;
+    }
+
+    // set content type
+    if (preg_match("/\.(jpg|jpeg)$/", $url)) {
+        header('Content-Type: image/jpeg');
+    } elseif (preg_match("/\.(png)$/", $url)) {
+        header('Content-Type: image/png');
+    } elseif (preg_match("/\.(gif)$/", $url)) {
+        header('Content-Type: image/gif');
+    }
+    // set default filename
+    header('Content-Disposition: inline; filename="' . basename($url) . '"');
+    // output the image
+    exit($contents);
+}
+
 $REPO = "DenverCoder1/minimalistic-wallpaper-collection";
 
 $BRANCH_NAME = "main";
@@ -30,6 +70,16 @@ $IMGPROXY_PREFIX = "https://dc1imgproxy.fly.dev/x/rs:auto:332:200:1/plain/" . ur
 // API url to get a listing of images in the directory on GitHub
 $GITHUB_API_URL = "https://api.github.com/repos/$REPO/contents/$IMAGES_DIRECTORY/";
 
+// whether to force a redirect to the image instead of displaying it directly
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] === "1" : false;
+
+// if the current URL is in the form "/images/...", show the image
+if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
+    $image_path = $BASE_URL . $matches[1];
+    displayImage($image_path, $REPO, $_GET['redirect'] ?? false);
+}
+
+// fetch the list of images from GitHub
 $images = json_decode(curlGetContents($GITHUB_API_URL, $REPO));
 
 // if the random query string parameter is set, pick a random image
@@ -37,12 +87,6 @@ if (isset($_GET['random'])) {
     // get the image url
     $random_image_path = $images[array_rand($images)]->download_url;
     header("Location: $random_image_path");
-}
-
-// if the current URL is in the form "/images/...", show the image
-if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
-    $image_path = $BASE_URL . $matches[1];
-    header("Location: $image_path");
 }
 ?>
 <!DOCTYPE html>
