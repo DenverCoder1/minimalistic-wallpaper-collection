@@ -76,7 +76,7 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] === "1" : false;
 // if the current URL is in the form "/images/...", show the image
 if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
     $image_path = $BASE_URL . $matches[1];
-    displayImage($image_path, $REPO, $_GET['redirect'] ?? false);
+    displayImage($image_path, $REPO, $redirect);
 }
 
 // fetch the list of images from GitHub
@@ -86,7 +86,7 @@ $images = json_decode(curlGetContents($GITHUB_API_URL, $REPO));
 if (isset($_GET['random'])) {
     // get the image url
     $random_image_path = $images[array_rand($images)]->download_url;
-    header("Location: $random_image_path");
+    displayImage($random_image_path, $REPO, $redirect);
 }
 ?>
 <!DOCTYPE html>
