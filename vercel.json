@@ -7,6 +7,6 @@
     },
     "routes": [{ "src": "/(.*)", "dest": "/api/index.php" }],
     "github": {
-        "silent": true
+        "enabled": false
     }
 }
