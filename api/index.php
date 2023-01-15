@@ -80,7 +80,7 @@ if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
 }
 
 // fetch the list of images from GitHub
-$images = json_decode(curlGetContents($GITHUB_API_URL, $REPO));
+$images = json_decode(curlGetContents($GITHUB_API_URL, $REPO), true);
 
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
