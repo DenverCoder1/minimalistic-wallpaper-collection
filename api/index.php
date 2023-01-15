@@ -80,12 +80,12 @@ if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
 }
 
 // fetch the list of images from GitHub
-$images = json_decode(curlGetContents($GITHUB_API_URL, $REPO));
+$images = json_decode(curlGetContents($GITHUB_API_URL, $REPO), true);
 
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
     // get the image url
-    $random_image_path = $images[array_rand($images)]->download_url;
+    $random_image_path = $images[array_rand($images)]["download_url"];
     displayImage($random_image_path, $REPO, $redirect);
 }
 ?>
@@ -225,7 +225,7 @@ if (isset($_GET['random'])) {
 
     <div class="gallery">
         <?php foreach ($images as $image) : ?>
-            <?php $image_path = $image->download_url; ?>
+            <?php $image_path = $image["download_url"]; ?>
             <a href="<?= $image_path; ?>" class="glightbox" data-alt="<?= basename($image_path); ?>" data-description="<?= basename($image_path); ?>">
                 <img src="<?= $IMGPROXY_PREFIX . basename($image_path); ?>" loading="lazy" alt="<?= basename($image_path); ?>" title="<?= basename($image_path); ?>" class="loading" onload="this.classList.remove('loading')">
             </a>
