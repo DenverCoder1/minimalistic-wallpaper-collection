@@ -37,6 +37,10 @@ jobs:
 
       - name: Tinify Images
         run: |
+          if [ -z "${{ steps.changed.outputs.added_modified }}" ]; then
+            echo "No files changed, skipping"
+            exit 0
+          fi
           python .github/scripts/tinify_images.py \
             -d images \
             -ff ${{ steps.changed.outputs.added_modified }} \
