@@ -142,10 +142,10 @@ if (isset($_GET['random'])) {
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             grid-gap: 1em;
-            width: 95%;
-            max-width: 1200px;
+            width: calc(100% - 2em);
+            max-width: 3600px;
             margin: auto;
         }
 
@@ -155,7 +155,7 @@ if (isset($_GET['random'])) {
             object-fit: cover;
             object-position: center;
             min-height: 122px;
-            border-radius: 8px;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
