@@ -71,7 +71,7 @@ $IMGPROXY_PREFIX = "https://dc1imgproxy.fly.dev/x/rs:auto:332:200:1/plain/" . ur
 $GITHUB_API_URL = "https://api.github.com/repos/$REPO/contents/$IMAGES_DIRECTORY/";
 
 // whether to force a redirect to the image instead of displaying it directly
-$redirect = isset($_GET['redirect']) ? $_GET['redirect'] === "1" : false;
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] === "1" : true;
 
 // if the current URL is in the form "/images/...", show the image
 if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
