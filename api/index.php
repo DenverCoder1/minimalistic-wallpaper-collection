@@ -36,6 +36,11 @@ function displayImage($url, $userAgent, $redirect)
     // don't need to fetch the image if we're redirecting
     $contents = $redirect ? "" : curlGetContents($url, $userAgent);
 
+    // Set headers to allow access from any origin
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+
     // redirect if redirect is set or the image is larger than 4.5MB
     if ($redirect || strlen($contents) > 4500000) {
         header("Location: $url");
