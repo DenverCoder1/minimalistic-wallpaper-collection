@@ -88,6 +88,12 @@ $images = json_decode(curlGetContents($GITHUB_API_URL, $REPO), true);
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
     // get the image url
+    if (empty($images)) {
+        exit("Error: images could not be parsed from GitHub API: " . print_r($images, true));
+    }
+    if (!is_array($images[array_rand($images)])) {
+        exit("Error: image was not an array: " . print_r($images[array_rand($images)], true));
+    }
     $random_image_path = $images[array_rand($images)]["download_url"];
     displayImage($random_image_path, $REPO, $redirect);
 }
