@@ -110,6 +110,13 @@ $download_zip_url = "https://github.com/{$REPO}/archive/refs/tags/{$VERSION}.zip
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimalistic Wallpaper Collection</title>
+    <!-- SEO / Social Media -->
+    <meta name="description" content="A collection of 300+ minimalistic, flat art, and colorful, digital nature wallpapers">
+    <meta name="keywords" content="minimalistic, wallpapers, images, photos, pictures">
+    <meta name="author" content="Jonah Lawrence">
+    <meta property="og:title" content="A collection of 300+ minimalistic, flat art, and colorful, digital nature wallpapers">
+    <meta property="og:description" content="A collection of minimalistic wallpapers">
+    <meta property="og:image" content="<?= $images[0]["download_url"]; ?>">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
