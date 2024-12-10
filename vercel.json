@@ -1,7 +1,7 @@
 {
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.7.1",
+            "runtime": "vercel-php@0.7.3",
             "excludeFiles": "{images/**,.github/**}"
         }
     },
