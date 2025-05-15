@@ -10,9 +10,9 @@ This is my collection of minimalistic, flat art, and colorful, digital nature wa
 
 ## Wallpapers
 
-To view a gallery of all 300+ wallpapers, [click here](https://minimalistic-wallpaper.demolab.com/)!
+To view a gallery of all 300+ wallpapers, [click here](https://mwc.deno.dev/)!
 
-[![screenshot](https://user-images.githubusercontent.com/20955511/186479660-475532e8-427d-4df1-a19d-7f94090805b1.png)](https://minimalistic-wallpaper.demolab.com/)
+[![screenshot](https://user-images.githubusercontent.com/20955511/186479660-475532e8-427d-4df1-a19d-7f94090805b1.png)](https://mwc.deno.dev/)
 
 ## API
 
@@ -21,15 +21,15 @@ The website also includes a random wallpaper API, so you can request random wall
 To use the API, simply make a request to:
 
 ```md
-https://minimalistic-wallpaper.demolab.com/?random
+https://mwc.deno.dev/?random
 ```
 
 To get multiple random images at once, it is recommended to change the URL slightly to avoid caching. For example,
 
 ```md
-https://minimalistic-wallpaper.demolab.com/?random=1
-https://minimalistic-wallpaper.demolab.com/?random=2
-https://minimalistic-wallpaper.demolab.com/?random=3
+https://mwc.deno.dev/?random=1
+https://mwc.deno.dev/?random=2
+https://mwc.deno.dev/?random=3
 ```
 
 This API can be used for setting daily wallpapers on a mobile device by combining it with an app such as IFTTT.
