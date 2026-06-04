@@ -5,7 +5,7 @@
  *
  * @param string $url The URL to fetch
  * @param string $userAgent The user agent to use
- * @return string The contents of the URL
+ * @return string|false The contents of the URL
  */
 function curlGetContents($url, $userAgent)
 {
@@ -36,14 +36,36 @@ function parseImageEntries($decodedResponse)
     return array_values(array_filter($decodedResponse, function ($entry) {
         return is_array($entry)
             && ($entry["type"] ?? null) === "file"
+            && is_string($entry["name"] ?? null)
+            && $entry["name"] !== ""
             && is_string($entry["download_url"] ?? null)
             && $entry["download_url"] !== "";
     }));
 }
 
 /**
+ * Build the gallery payload used by the page.
+ *
+ * @param array<int, array<string, mixed>> $images The valid image entries
+ * @param string $imgproxyPrefix The thumbnail URL prefix
+ * @return array<int, array<string, string>> The image data for rendering
+ */
+function buildGalleryImages($images, $imgproxyPrefix)
+{
+    return array_map(function ($image) use ($imgproxyPrefix) {
+        $name = $image["name"];
+
+        return [
+            "name" => $name,
+            "full" => $image["download_url"],
+            "thumbnail" => $imgproxyPrefix . rawurlencode($name),
+        ];
+    }, $images);
+}
+
+/**
  * Fetch an image, if it is larger than 4.5MB, redirect to it
- * otherwise, return the image as content
+ * otherwise, return the image as content.
  *
  * @param string $url The URL to fetch
  * @param string $userAgent The user agent to use
@@ -105,20 +127,24 @@ if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
 // fetch the list of images from GitHub
 $images_response = json_decode(curlGetContents($GITHUB_API_URL, $REPO), true);
 $images = parseImageEntries($images_response);
+$gallery_images = buildGalleryImages($images, $IMGPROXY_PREFIX);
+
+$INITIAL_GALLERY_BATCH = 24;
+$initial_gallery_images = array_slice($gallery_images, 0, $INITIAL_GALLERY_BATCH);
+$remaining_gallery_images = array_slice($gallery_images, $INITIAL_GALLERY_BATCH);
 
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
-    // get the image url
-    if (empty($images)) {
+    if (empty($gallery_images)) {
         exit("Error: images could not be parsed from GitHub API: " . print_r($images_response, true));
     }
-    $random_image = $images[array_rand($images)];
-    $random_image_path = $random_image["download_url"];
-    displayImage($random_image_path, $REPO, $redirect);
+
+    $random_image = $gallery_images[array_rand($gallery_images)];
+    displayImage($random_image["full"], $REPO, $redirect);
 }
 
 $download_zip_url = "https://github.com/{$REPO}/archive/refs/tags/{$VERSION}.zip";
-$og_image = !empty($images) ? $images[0]["download_url"] : "";
+$og_image = !empty($gallery_images) ? $gallery_images[0]["full"] : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -187,6 +213,10 @@ $og_image = !empty($images) ? $images[0]["download_url"] : "";
             margin: auto;
         }
 
+        .gallery a {
+            display: block;
+        }
+
         .gallery img {
             width: 100%;
             height: 100%;
@@ -221,6 +251,12 @@ $og_image = !empty($images) ? $images[0]["download_url"] : "";
             background-repeat: no-repeat;
             background-position: -315px 0, 0 0;
             animation: loading 1.5s infinite;
+        }
+
+        .gallery-sentinel {
+            width: calc(100% - 2em);
+            height: 1px;
+            margin: auto;
         }
 
         @keyframes loading {
@@ -267,38 +303,207 @@ $og_image = !empty($images) ? $images[0]["download_url"] : "";
         </a>
     </div>
 
-    <div class="gallery">
-        <?php foreach ($images as $image) : ?>
-            <?php $image_path = $image["download_url"]; ?>
-            <a href="<?= $image_path; ?>" class="glightbox" data-alt="<?= basename($image_path); ?>" data-description="<?= basename($image_path); ?>">
-                <img src="<?= $IMGPROXY_PREFIX . basename($image_path); ?>" loading="lazy" alt="<?= basename($image_path); ?>" title="<?= basename($image_path); ?>" class="loading" onload="this.classList.remove('loading')">
+    <div class="gallery" id="gallery">
+        <?php foreach ($initial_gallery_images as $image) : ?>
+            <a href="<?= $image["full"]; ?>" class="glightbox" data-alt="<?= $image["name"]; ?>" data-description="<?= $image["name"]; ?>">
+                <img src="<?= $image["thumbnail"]; ?>" loading="lazy" alt="<?= $image["name"]; ?>" title="<?= $image["name"]; ?>" class="loading">
             </a>
         <?php endforeach; ?>
     </div>
+
+    <div class="gallery-sentinel" id="gallery-sentinel" aria-hidden="true"></div>
 
     <div class="footer">
         <p>Disclaimer: The images are not designed by me, they are mostly collected from Reddit and other sources.</p>
         <p>Website by <a href="https://github.com/DenverCoder1/">Jonah Lawrence</a>, &copy; <?= date('Y'); ?></p>
     </div>
 
+    <script id="gallery-data" type="application/json">
+        <?= json_encode($remaining_gallery_images, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP); ?>
+    </script>
+
     <script type="text/javascript">
         window.addEventListener("load", function() {
-            /**
-             * Open image based on hash
-             *
-             * If the hash is "gallery", open the first image in the gallery,
-             * otherwise, open the image with the hash as the alt attribute.
-             */
-            function openImageFromHash() {
-                const hash = window.location.hash.substr(1);
-                const query = hash === "gallery" ? ".gallery img" : `.gallery img[alt="${hash}"]`;
-                const imageElement = document.querySelector(query);
-                if (imageElement) {
-                    imageElement.click();
+            class GalleryLoader {
+                constructor(options) {
+                    this.galleryElement = options.galleryElement;
+                    this.sentinelElement = options.sentinelElement;
+                    this.pendingImages = options.images;
+                    this.batchSize = options.batchSize;
+                    this.viewportOffset = options.viewportOffset;
+                    this.lightbox = options.lightbox;
+                    this.isFilling = false;
+                    this.intersectionObserver = null;
+                }
+
+                init() {
+                    this.bindExistingImages();
+                    this.fillAvailableSpace();
+                    this.observeSentinel();
+
+                    if (window.location.hash) {
+                        this.openImageFromHash();
+                    }
+
+                    window.addEventListener("resize", () => {
+                        this.fillAvailableSpace();
+                    });
+
+                    window.addEventListener("hashchange", () => {
+                        if (!this.lightbox.lightboxOpen) {
+                            this.openImageFromHash();
+                        }
+                    });
+                }
+
+                bindExistingImages() {
+                    this.galleryElement.querySelectorAll("img").forEach((imageElement) => {
+                        this.bindImageEvents(imageElement);
+                    });
+                }
+
+                bindImageEvents(imageElement) {
+                    if (imageElement.dataset.eventsBound === "true") {
+                        return;
+                    }
+
+                    imageElement.addEventListener("load", () => {
+                        imageElement.classList.remove("loading");
+                    });
+
+                    imageElement.addEventListener("error", function handleError() {
+                        const fullImageUrl = imageElement.parentElement.href;
+                        if (imageElement.src !== fullImageUrl) {
+                            imageElement.src = fullImageUrl;
+                            return;
+                        }
+
+                        imageElement.classList.remove("loading");
+                        imageElement.removeEventListener("error", handleError);
+                    });
+
+                    if (imageElement.complete) {
+                        imageElement.classList.remove("loading");
+                    }
+
+                    imageElement.dataset.eventsBound = "true";
+                }
+
+                createGalleryItem(image) {
+                    const link = document.createElement("a");
+                    link.href = image.full;
+                    link.className = "glightbox";
+                    link.dataset.alt = image.name;
+                    link.dataset.description = image.name;
+
+                    const img = document.createElement("img");
+                    img.src = image.thumbnail;
+                    img.loading = "lazy";
+                    img.alt = image.name;
+                    img.title = image.name;
+                    img.className = "loading";
+                    this.bindImageEvents(img);
+
+                    link.appendChild(img);
+                    return link;
+                }
+
+                appendNextBatch() {
+                    if (this.pendingImages.length === 0) {
+                        return false;
+                    }
+
+                    const batch = this.pendingImages.splice(0, this.batchSize);
+                    const fragment = document.createDocumentFragment();
+
+                    batch.forEach((image) => {
+                        fragment.appendChild(this.createGalleryItem(image));
+                    });
+
+                    this.galleryElement.appendChild(fragment);
+                    this.lightbox.reload();
+
+                    if (this.pendingImages.length === 0 && this.intersectionObserver) {
+                        this.intersectionObserver.disconnect();
+                    }
+
+                    return true;
+                }
+
+                hasRoomForMore() {
+                    return this.galleryElement.getBoundingClientRect().bottom <= window.innerHeight + this.viewportOffset;
+                }
+
+                fillAvailableSpace() {
+                    if (this.isFilling) {
+                        return;
+                    }
+
+                    this.isFilling = true;
+
+                    requestAnimationFrame(() => {
+                        while (this.pendingImages.length > 0 && this.hasRoomForMore()) {
+                            this.appendNextBatch();
+                        }
+
+                        this.isFilling = false;
+                    });
+                }
+
+                findImageByName(name) {
+                    return Array.from(this.galleryElement.querySelectorAll("img")).find((imageElement) => {
+                        return imageElement.alt === name;
+                    }) || null;
+                }
+
+                openImageFromHash() {
+                    const hash = window.location.hash.slice(1);
+
+                    if (!hash) {
+                        return;
+                    }
+
+                    if (hash === "gallery") {
+                        const firstImage = this.galleryElement.querySelector("img");
+                        if (firstImage) {
+                            firstImage.click();
+                        }
+                        return;
+                    }
+
+                    while (this.pendingImages.length > 0 && !this.findImageByName(hash)) {
+                        this.appendNextBatch();
+                    }
+
+                    const imageElement = this.findImageByName(hash);
+                    if (imageElement) {
+                        imageElement.click();
+                    }
+                }
+
+                observeSentinel() {
+                    this.intersectionObserver = new IntersectionObserver((entries) => {
+                        const shouldLoadMore = entries.some((entry) => entry.isIntersecting);
+
+                        if (!shouldLoadMore) {
+                            return;
+                        }
+
+                        if (this.appendNextBatch()) {
+                            this.fillAvailableSpace();
+                        }
+                    }, {
+                        rootMargin: "240px 0px"
+                    });
+
+                    this.intersectionObserver.observe(this.sentinelElement);
                 }
             }
 
-            // initialize glightbox
+            const galleryDataElement = document.getElementById("gallery-data");
+            const galleryImages = galleryDataElement ? JSON.parse(galleryDataElement.textContent || "[]") : [];
+            const galleryElement = document.getElementById("gallery");
+            const sentinelElement = document.getElementById("gallery-sentinel");
             const lightbox = GLightbox();
 
             // add image dimensions to description on image load
@@ -326,24 +531,16 @@ $og_image = !empty($images) ? $images[0]["download_url"] : "";
                 history.replaceState(null, null, window.location.pathname);
             });
 
-            // if hash is set, open image
-            if (window.location.hash) {
-                openImageFromHash();
-            }
-
-            // if hash is changed and lightbox is closed, open image
-            window.addEventListener("hashchange", function() {
-                if (!lightbox.lightboxOpen) {
-                    openImageFromHash();
-                }
+            const galleryLoader = new GalleryLoader({
+                galleryElement: galleryElement,
+                sentinelElement: sentinelElement,
+                images: galleryImages,
+                batchSize: <?= $INITIAL_GALLERY_BATCH; ?>,
+                viewportOffset: 160,
+                lightbox: lightbox,
             });
-        });
 
-        // if imgproxy version fails to load, fallback to full-size image
-        document.querySelectorAll(".gallery img").forEach(function(img) {
-            img.addEventListener("error", function() {
-                this.src = this.parentElement.href;
-            });
+            galleryLoader.init();
         });
     </script>
 </body>
