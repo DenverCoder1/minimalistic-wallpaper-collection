@@ -1,103 +1,6 @@
 <?php
 
-/**
- * Fetch the contents of a URL with cURL
- *
- * @param string $url The URL to fetch
- * @param string $userAgent The user agent to use
- * @return string|false The contents of the URL
- */
-function curlGetContents($url, $userAgent)
-{
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-    curl_setopt($ch, CURLOPT_HEADER, false);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_VERBOSE, false);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-    curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
-    return curl_exec($ch);
-}
-
-/**
- * Normalize the GitHub contents API response to a list of image file entries.
- *
- * @param mixed $decodedResponse The decoded GitHub API response
- * @return array<int, array<string, mixed>> The valid image entries
- */
-function parseImageEntries($decodedResponse)
-{
-    if (!is_array($decodedResponse) || array_is_list($decodedResponse) === false) {
-        return [];
-    }
-
-    return array_values(array_filter($decodedResponse, function ($entry) {
-        return is_array($entry)
-            && ($entry["type"] ?? null) === "file"
-            && is_string($entry["name"] ?? null)
-            && $entry["name"] !== ""
-            && is_string($entry["download_url"] ?? null)
-            && $entry["download_url"] !== "";
-    }));
-}
-
-/**
- * Build the gallery payload used by the page.
- *
- * @param array<int, array<string, mixed>> $images The valid image entries
- * @param string $imgproxyPrefix The thumbnail URL prefix
- * @return array<int, array<string, string>> The image data for rendering
- */
-function buildGalleryImages($images, $imgproxyPrefix)
-{
-    return array_map(function ($image) use ($imgproxyPrefix) {
-        $name = $image["name"];
-
-        return [
-            "name" => $name,
-            "full" => $image["download_url"],
-            "thumbnail" => $imgproxyPrefix . rawurlencode($name),
-        ];
-    }, $images);
-}
-
-/**
- * Fetch an image, if it is larger than 4.5MB, redirect to it
- * otherwise, return the image as content.
- *
- * @param string $url The URL to fetch
- * @param string $userAgent The user agent to use
- * @param bool $redirect Whether to force a redirect
- */
-function displayImage($url, $userAgent, $redirect)
-{
-    // don't need to fetch the image if we're redirecting
-    $contents = $redirect ? "" : curlGetContents($url, $userAgent);
-
-    // Set headers to allow access from any origin
-    header("Access-Control-Allow-Origin: *");
-
-    // redirect if redirect is set or the image is larger than 4.5MB
-    if ($redirect || strlen($contents) > 4500000) {
-        header("Location: $url");
-        exit;
-    }
-
-    // set content type
-    if (preg_match("/\.(jpg|jpeg)$/", $url)) {
-        header('Content-Type: image/jpeg');
-    } elseif (preg_match("/\.(png)$/", $url)) {
-        header('Content-Type: image/png');
-    } elseif (preg_match("/\.(gif)$/", $url)) {
-        header('Content-Type: image/gif');
-    }
-    // set default filename
-    header('Content-Disposition: inline; filename="' . basename($url) . '"');
-    // output the image
-    exit($contents);
-}
+require_once __DIR__ . '/utils.php';
 
 $VERSION = "2023.04";
 
@@ -112,9 +15,6 @@ $BASE_URL = "https://raw.githubusercontent.com/$REPO/$BRANCH_NAME/$IMAGES_DIRECT
 // prefix for generating 332x200px thumbnails
 $IMGPROXY_PREFIX = "https://dc1imgproxy.fly.dev/x/rs:auto:332:200:1/plain/" . urlencode($BASE_URL);
 
-// API url to get a listing of images in the directory on GitHub
-$GITHUB_API_URL = "https://api.github.com/repos/$REPO/contents/$IMAGES_DIRECTORY/";
-
 // whether to force a redirect to the image instead of displaying it directly
 $redirect = isset($_GET['redirect']) ? $_GET['redirect'] === "1" : true;
 
@@ -124,9 +24,9 @@ if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
     displayImage($image_path, $REPO, $redirect);
 }
 
-// fetch the list of images from GitHub
-$images_response = json_decode(curlGetContents($GITHUB_API_URL, $REPO), true);
-$images = parseImageEntries($images_response);
+// fetch from images.json which is updated on each commit to avoid hitting GitHub API rate limits
+$images_json = file_get_contents(__DIR__ . "/generated/images.json");
+$images = parseImageEntries(json_decode($images_json, true));
 $gallery_images = buildGalleryImages($images, $IMGPROXY_PREFIX);
 
 $INITIAL_GALLERY_BATCH = 24;
