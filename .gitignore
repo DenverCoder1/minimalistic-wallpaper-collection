@@ -2,3 +2,4 @@
 .vercel
 .env
 .venv
+.env*
