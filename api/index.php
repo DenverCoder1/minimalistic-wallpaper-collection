@@ -24,7 +24,7 @@ if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
     displayImage($image_path, $REPO, $redirect);
 }
 
-// fetch from images.json which is updated on each commit to avoid hitting GitHub API rate limits
+// fetch from generated/images.json which is updated on each commit to avoid hitting GitHub API rate limits
 $images_json = file_get_contents(__DIR__ . "/generated/images.json");
 $images = parseImageEntries(json_decode($images_json, true));
 $gallery_images = buildGalleryImages($images, $IMGPROXY_PREFIX);
