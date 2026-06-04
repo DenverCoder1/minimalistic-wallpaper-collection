@@ -1,0 +1,41 @@
+name: Update cached images JSON
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "images/**"
+            - ".github/scripts/update-images-json.php"
+    workflow_dispatch:
+
+jobs:
+    update-images-json:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "8.0"
+
+            - name: Update cached images JSON
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  php ./.github/scripts/update-images-json.php "$GITHUB_TOKEN"
+
+            - name: Commit and push changes
+              run: |
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                  git add api/generated/images.json
+                  if ! git diff --cached --quiet; then
+                    git commit -m "Update images.json with latest data from GitHub API"
+                    git push origin main
+                  else
+                    echo "No changes to commit."
+                  fi
