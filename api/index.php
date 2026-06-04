@@ -18,9 +18,27 @@ function curlGetContents($url, $userAgent)
     curl_setopt($ch, CURLOPT_VERBOSE, false);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    return $response;
+    return curl_exec($ch);
+}
+
+/**
+ * Normalize the GitHub contents API response to a list of image file entries.
+ *
+ * @param mixed $decodedResponse The decoded GitHub API response
+ * @return array<int, array<string, mixed>> The valid image entries
+ */
+function parseImageEntries($decodedResponse)
+{
+    if (!is_array($decodedResponse) || array_is_list($decodedResponse) === false) {
+        return [];
+    }
+
+    return array_values(array_filter($decodedResponse, function ($entry) {
+        return is_array($entry)
+            && ($entry["type"] ?? null) === "file"
+            && is_string($entry["download_url"] ?? null)
+            && $entry["download_url"] !== "";
+    }));
 }
 
 /**
@@ -85,22 +103,22 @@ if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
 }
 
 // fetch the list of images from GitHub
-$images = json_decode(curlGetContents($GITHUB_API_URL, $REPO), true);
+$images_response = json_decode(curlGetContents($GITHUB_API_URL, $REPO), true);
+$images = parseImageEntries($images_response);
 
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
     // get the image url
     if (empty($images)) {
-        exit("Error: images could not be parsed from GitHub API: " . print_r($images, true));
+        exit("Error: images could not be parsed from GitHub API: " . print_r($images_response, true));
     }
-    if (!is_array($images[array_rand($images)])) {
-        exit("Error: image was not an array: " . print_r($images[array_rand($images)], true));
-    }
-    $random_image_path = $images[array_rand($images)]["download_url"];
+    $random_image = $images[array_rand($images)];
+    $random_image_path = $random_image["download_url"];
     displayImage($random_image_path, $REPO, $redirect);
 }
 
 $download_zip_url = "https://github.com/{$REPO}/archive/refs/tags/{$VERSION}.zip";
+$og_image = !empty($images) ? $images[0]["download_url"] : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +134,7 @@ $download_zip_url = "https://github.com/{$REPO}/archive/refs/tags/{$VERSION}.zip
     <meta name="author" content="Jonah Lawrence">
     <meta property="og:title" content="Minimalistic Wallpaper Collection">
     <meta property="og:description" content="A collection of 300+ minimalistic, flat art, and colorful, digital nature wallpapers">
-    <meta property="og:image" content="<?= $images[0]["download_url"]; ?>">
+    <meta property="og:image" content="<?= $og_image; ?>">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
