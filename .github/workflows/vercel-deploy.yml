@@ -11,10 +11,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25.1.1
+        uses: amondnet/vercel-action@v42.3.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -22,3 +22,4 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           # use --prod if it is a push to main, otherwise it is a preview
           vercel-args: ${{ github.event_name != 'pull_request' && '--prod' || '' }}
+          vercel-version: 66.6.0
