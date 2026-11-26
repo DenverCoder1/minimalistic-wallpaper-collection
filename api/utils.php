@@ -26,10 +26,10 @@ function curlGetContents($url, $userAgent, $githubToken = null)
 }
 
 /**
- * Normalize the GitHub contents API response to a list of image file entries.
+ * Normalize GitHub contents API or cached entries to a list of image files.
  *
  * @param mixed $decodedResponse The decoded GitHub API response
- * @return array<int, array{name: string, download_url: string}> The valid image entries
+ * @return array<int, array{name: string, size: int|null, download_url: string}> The valid image entries
  */
 function parseImageEntries($decodedResponse)
 {
@@ -39,7 +39,7 @@ function parseImageEntries($decodedResponse)
 
     $validEntries = array_filter($decodedResponse, function ($entry) {
         return is_array($entry)
-            && ($entry["type"] ?? null) === "file"
+            && (!array_key_exists("type", $entry) || $entry["type"] === "file")
             && is_string($entry["name"] ?? null)
             && $entry["name"] !== ""
             && is_string($entry["download_url"] ?? null)
@@ -75,39 +75,15 @@ function buildGalleryImages($images, $imgproxyPrefix)
 }
 
 /**
- * Fetch an image, if it is larger than 4.5MB, redirect to it
- * otherwise, return the image as content.
+ * Redirect to an image.
  *
- * @param string $url The URL to fetch
- * @param string $userAgent The user agent to use
- * @param bool $redirect Whether to force a redirect
+ * @param string $url The image URL
  */
-function displayImage($url, $userAgent, $redirect)
+function displayImage($url)
 {
-    // don't need to fetch the image if we're redirecting
-    $contents = $redirect ? "" : curlGetContents($url, $userAgent);
-
-    // Set headers to allow access from any origin
     header("Access-Control-Allow-Origin: *");
-
-    // redirect if redirect is set or the image is larger than 4.5MB
-    if ($redirect || strlen($contents) > 4500000) {
-        header("Location: $url");
-        exit;
-    }
-
-    // set content type
-    if (preg_match("/\.(jpg|jpeg)$/", $url)) {
-        header('Content-Type: image/jpeg');
-    } elseif (preg_match("/\.(png)$/", $url)) {
-        header('Content-Type: image/png');
-    } elseif (preg_match("/\.(gif)$/", $url)) {
-        header('Content-Type: image/gif');
-    }
-    // set default filename
-    header('Content-Disposition: inline; filename="' . basename($url) . '"');
-    // output the image
-    exit($contents);
+    header("Location: $url");
+    exit;
 }
 
 function updateImagesJson($githubToken = null)

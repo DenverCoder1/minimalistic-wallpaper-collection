@@ -15,18 +15,17 @@ $BASE_URL = "https://raw.githubusercontent.com/$REPO/$BRANCH_NAME/$IMAGES_DIRECT
 // prefix for generating 332x200px thumbnails
 $IMGPROXY_PREFIX = "https://dc1imgproxy.fly.dev/x/rs:auto:332:200:1/plain/" . urlencode($BASE_URL);
 
-// whether to force a redirect to the image instead of displaying it directly
-$redirect = isset($_GET['redirect']) ? $_GET['redirect'] === "1" : true;
-
 // if the current URL is in the form "/images/...", show the image
-if (preg_match("/\/images\/(.*)$/", $_SERVER['REQUEST_URI'], $matches)) {
+$request_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+if (preg_match("/\/images\/(.*)$/", $request_path, $matches)) {
     $image_path = $BASE_URL . $matches[1];
-    displayImage($image_path, $REPO, $redirect);
+    displayImage($image_path);
 }
 
 // fetch from generated/images.json which is updated on each commit to avoid hitting GitHub API rate limits
 $images_json = file_get_contents(__DIR__ . "/generated/images.json");
 $images = parseImageEntries(json_decode($images_json, true));
+
 $gallery_images = buildGalleryImages($images, $IMGPROXY_PREFIX);
 
 $INITIAL_GALLERY_BATCH = 24;
@@ -35,12 +34,12 @@ $remaining_gallery_images = array_slice($gallery_images, $INITIAL_GALLERY_BATCH)
 
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
-    if (empty($gallery_images)) {
+    if (empty($images)) {
         exit("Error: images could not be parsed from GitHub API: " . print_r($images_json, true));
     }
 
-    $random_image = $gallery_images[array_rand($gallery_images)];
-    displayImage($random_image["full"], $REPO, $redirect);
+    $random_image = $images[array_rand($images)];
+    displayImage($random_image["download_url"]);
 }
 
 $download_zip_url = "https://github.com/{$REPO}/archive/refs/tags/{$VERSION}.zip";

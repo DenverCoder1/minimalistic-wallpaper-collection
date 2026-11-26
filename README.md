@@ -39,8 +39,8 @@ https://minimalistic-wallpaper.demolab.com/?random=3
 This API can be used for setting daily wallpapers on a mobile device by combining it with an app such as IFTTT.
 
 > **Note**
-> By default, the API will fetch the image from GitHub and return it as content if it is smaller than 4.5MB.
-> To force the API to redirect to the image on GitHub instead, add `&redirect=1` to the end of the URL.
+> The API always redirects to the image hosted on GitHub.
+> The `redirect` parameter is deprecated and ignored.
 
 ## Projectivity Plugin
 
@@ -52,8 +52,7 @@ This API can be used for setting daily wallpapers on a mobile device by combinin
 
 All images appearing in the images directory contain the author (sometimes this is the original artist, for others, this is a Reddit user who shared the image or a website the image was found on in cases where the original artist is unknown) and the title or description of the wallpaper.
 
-* If the artist is not properly attributed, feel free to open an issue or pull request for renaming the files to give the author the correct attribution
-* New wallpapers may be suggested by opening a pull request, but as this is a personal wallpaper collection, it is up to my discretion whether or not the wallpaper will be accepted
-* If you are able to find or create higher resoluion versions of the existing wallpapers, feel free to do so and open a PR. Images should be at least 1920x1080, the preferrable size is 3840x2160, larger than this is not necessary. Note that a resized image is not considered higher resolution, however, an image upscaled using an AI image restoration model can be used if the output is not pixelated or blurry.
-* Issues and pull requests regarding improvements to the website or API are welcome
-
+- If the artist is not properly attributed, feel free to open an issue or pull request for renaming the files to give the author the correct attribution
+- New wallpapers may be suggested by opening a pull request, but as this is a personal wallpaper collection, it is up to my discretion whether or not the wallpaper will be accepted
+- If you are able to find or create higher resoluion versions of the existing wallpapers, feel free to do so and open a PR. Images should be at least 1920x1080, the preferrable size is 3840x2160, larger than this is not necessary. Note that a resized image is not considered higher resolution, however, an image upscaled using an AI image restoration model can be used if the output is not pixelated or blurry.
+- Issues and pull requests regarding improvements to the website or API are welcome
