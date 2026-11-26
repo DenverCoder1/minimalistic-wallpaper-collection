@@ -14,6 +14,10 @@ To view a gallery of all 300+ wallpapers, [click here](https://minimalistic-wall
 
 [![screenshot](https://user-images.githubusercontent.com/20955511/186479660-475532e8-427d-4df1-a19d-7f94090805b1.png)](https://minimalistic-wallpaper.demolab.com/)
 
+## Using as Laptop Wallpapers
+
+To use these wallpapers on your laptop, you may clone this repository and set the `images` directory as the wallpaper source in your computer's display or wallpaper settings. Enable a slideshow or rotation option there if you want your wallpaper to change automatically.
+
 ## API
 
 The website also includes a random wallpaper API, so you can request random wallpapers from the collection using a web request.
@@ -42,7 +46,7 @@ This API can be used for setting daily wallpapers on a mobile device by combinin
 
 [Click here](https://github.com/DenverCoder1/projectivity-plugin-minimalistic-wallpaper) for the Android TV Projectivity Plugin for Minimalistic Wallpaper that uses this API.
 
-<img width="320" height="180" alt="image" src="https://github.com/user-attachments/assets/1ada9a2b-ac6f-4182-bf28-ee61c8106897" />
+<a href="https://github.com/DenverCoder1/projectivity-plugin-minimalistic-wallpaper"><img width="160" alt="image" src="https://github.com/user-attachments/assets/1ada9a2b-ac6f-4182-bf28-ee61c8106897" /></a>
 
 ## Contributing
 
