@@ -36,7 +36,7 @@ $remaining_gallery_images = array_slice($gallery_images, $INITIAL_GALLERY_BATCH)
 // if the random query string parameter is set, pick a random image
 if (isset($_GET['random'])) {
     if (empty($gallery_images)) {
-        exit("Error: images could not be parsed from GitHub API: " . print_r($images_response, true));
+        exit("Error: images could not be parsed from GitHub API: " . print_r($images_json, true));
     }
 
     $random_image = $gallery_images[array_rand($gallery_images)];

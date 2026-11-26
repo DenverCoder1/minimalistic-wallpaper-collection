@@ -29,7 +29,7 @@ function curlGetContents($url, $userAgent, $githubToken = null)
  * Normalize the GitHub contents API response to a list of image file entries.
  *
  * @param mixed $decodedResponse The decoded GitHub API response
- * @return array<int, array<string, mixed>> The valid image entries
+ * @return array<int, array{name: string, download_url: string}> The valid image entries
  */
 function parseImageEntries($decodedResponse)
 {
@@ -37,14 +37,21 @@ function parseImageEntries($decodedResponse)
         return [];
     }
 
-    return array_values(array_filter($decodedResponse, function ($entry) {
+    $validEntries = array_filter($decodedResponse, function ($entry) {
         return is_array($entry)
             && ($entry["type"] ?? null) === "file"
             && is_string($entry["name"] ?? null)
             && $entry["name"] !== ""
             && is_string($entry["download_url"] ?? null)
             && $entry["download_url"] !== "";
-    }));
+    });
+
+    return array_values(array_map(function ($entry) {
+        return [
+            "name" => $entry["name"],
+            "download_url" => $entry["download_url"],
+        ];
+    }, $validEntries));
 }
 
 /**
@@ -114,10 +121,15 @@ function updateImagesJson($githubToken = null)
     // fetch the list of images from the GitHub API
     $images_response = curlGetContents($GITHUB_API_URL, "Minimalistic Wallpaper Collection (update-images-json.php)", $githubToken);
 
-    $images = json_decode($images_response, true);
+    $decodedResponse = json_decode($images_response, true);
     if (json_last_error() !== JSON_ERROR_NONE) {
         exit("Error: images could not be parsed from GitHub API: " . print_r($images_response, true));
     }
+    if (!is_array($decodedResponse) || array_is_list($decodedResponse) === false) {
+        exit("Error: unexpected response from GitHub API: " . print_r($images_response, true));
+    }
+
+    $images = parseImageEntries($decodedResponse);
 
     // write the images to a local JSON file
     file_put_contents(__DIR__ . '/generated/images.json', json_encode($images, JSON_PRETTY_PRINT));
