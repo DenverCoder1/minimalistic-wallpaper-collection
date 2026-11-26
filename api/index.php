@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/utils.php';
 
-$VERSION = "2023.04";
+$VERSION = "2026.11";
 
 $REPO = "DenverCoder1/minimalistic-wallpaper-collection";
 
